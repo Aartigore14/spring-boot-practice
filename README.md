@@ -1,14 +1,14 @@
 # ☕ Spring Boot Practice
 
-> A structured, project-based learning repository covering Spring Boot 3.x from basics to advanced — built alongside my Java Full Stack placement preparation for 2026–27 campus drives.
+> A structured, project-based repository for learning Spring Boot 3.x — built alongside my Java Full Stack placement preparation for the 2026–27 campus placement season.
 
 <br>
 
 ## 👩‍💻 About This Repository
 
-This repository documents my Spring Boot learning journey, progressing from basic REST APIs to full-stack integration with React and MySQL. Every project here is hands-on — concepts are applied immediately after learning, not just watched.
+This repository documents my Spring Boot learning journey — progressing from basic REST APIs to database integration, security, and full-stack development. Every project is hands-on: concepts are applied immediately after learning, not just watched.
 
-**Learning Path:** REST APIs → Spring Data JPA → Spring Security + JWT → Full Stack
+**Learning Path:** REST APIs → Spring Data JPA + MySQL → Spring Security + JWT → Full Stack (SmartSpend)
 
 <br>
 
@@ -17,24 +17,11 @@ This repository documents my Spring Boot learning journey, progressing from basi
 ```
 spring-boot-practice/
 │
-├── 01-basics/
-│   ├── hello-world-api/          → First REST endpoint, @RestController
-│   ├── student-api/              → Full CRUD with in-memory ArrayList
-│   └── exception-handling/       → GlobalExceptionHandler, ProblemDetail
-│
-├── 02-database/
-│   ├── student-jpa/              → Spring Data JPA + MySQL
-│   ├── product-crud/             → Full CRUD with database + pagination
-│   └── pagination-demo/          → Pageable, sorting, filtering
-│
-├── 03-security/
-│   ├── jwt-auth-demo/            → Spring Security 6 + JWT
-│   └── role-based-access/        → @PreAuthorize, admin vs user roles
-│
-├── 04-advanced/
-│   ├── file-upload-api/          → Multipart file handling
-│   └── email-service/            → JavaMailSender integration
-│
+├── 01-hello-world-api/        → First REST endpoint, @RestController, @GetMapping
+├── 02-student-api/            → Full CRUD REST API, @Service layer, DTO pattern
+├── 03-student-jpa/            → Spring Data JPA + MySQL integration (upcoming)
+├── 04-exception-handling/     → GlobalExceptionHandler, ProblemDetail RFC 7807 (upcoming)
+├── 05-jwt-auth-demo/          → Spring Security 6 + JWT (upcoming)
 └── README.md
 ```
 
@@ -46,9 +33,8 @@ spring-boot-practice/
 
 | # | Project | Concepts Covered | Status |
 |---|---------|-----------------|--------|
-| 01 | [Hello World API](./01-basics/hello-world-api/) | @RestController, @GetMapping, embedded Tomcat | ✅ Complete |
-| 02 | [Student API](./01-basics/student-api/) | Full CRUD, @PostMapping, @PutMapping, @DeleteMapping, DTO pattern | 🔜 Upcoming |
-| 03 | [Exception Handling](./01-basics/exception-handling/) | @ControllerAdvice, ProblemDetail (RFC 7807), custom exceptions | 🔜 Upcoming |
+| 01 | [Hello World API](./01-hello-world-api/) | @RestController, @GetMapping, embedded Tomcat, Maven project structure | ✅ Complete |
+| 02 | [Student API](./02-student-api/) | Full CRUD, @PostMapping, @PutMapping, @DeleteMapping, @Service layer, @PathVariable, @RequestBody, in-memory ArrayList | ✅ Complete |
 
 ---
 
@@ -56,9 +42,9 @@ spring-boot-practice/
 
 | # | Project | Concepts Covered | Status |
 |---|---------|-----------------|--------|
-| 04 | [Student JPA](./02-database/student-jpa/) | @Entity, @Repository, Spring Data JPA, MySQL | 🔜 Upcoming |
-| 05 | [Product CRUD](./02-database/product-crud/) | Full CRUD with DB, Flyway migrations, indexing | 🔜 Upcoming |
-| 06 | [Pagination Demo](./02-database/pagination-demo/) | Pageable, cursor-based pagination, sorting | 🔜 Upcoming |
+| 03 | Student JPA | @Entity, @Repository, Spring Data JPA, MySQL, application.properties | 🔜 Upcoming |
+| 04 | Exception Handling | @ControllerAdvice, @ExceptionHandler, ProblemDetail (RFC 7807) | 🔜 Upcoming |
+| 05 | Pagination Demo | Pageable, cursor-based pagination, sorting, filtering | 🔜 Upcoming |
 
 ---
 
@@ -66,49 +52,76 @@ spring-boot-practice/
 
 | # | Project | Concepts Covered | Status |
 |---|---------|-----------------|--------|
-| 07 | [JWT Auth Demo](./03-security/jwt-auth-demo/) | Spring Security 6 filter chain, JWT, refresh tokens | 🔜 Upcoming |
-| 08 | [Role Based Access](./03-security/role-based-access/) | @PreAuthorize, method-level security, admin vs user | 🔜 Upcoming |
+| 06 | JWT Auth Demo | Spring Security 6 filter chain, JWT token, refresh tokens, stateless auth | 🔜 Upcoming |
+| 07 | Role Based Access | @PreAuthorize, method-level security, admin vs user roles | 🔜 Upcoming |
 
 ---
 
-### 🔵 Stage 4 — Advanced Features
+### 🔵 Stage 4 — Full Stack
 
 | # | Project | Concepts Covered | Status |
 |---|---------|-----------------|--------|
-| 09 | [File Upload API](./04-advanced/file-upload-api/) | MultipartFile, file storage, validation | 🔜 Upcoming |
-| 10 | [Email Service](./04-advanced/email-service/) | JavaMailSender, async email, templates | 🔜 Upcoming |
+| 08 | SmartSpend | Spring Boot + React + MySQL + JWT — complete full stack app | 🔜 Upcoming |
 
 <br>
 
-## 🧠 Concepts Covered
+## 🧠 Concepts Learned So Far
 
 ```
 ✅ Spring Boot auto-configuration and starter dependencies
-✅ @RestController, @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
-✅ Embedded Tomcat server
 ✅ Maven project structure and pom.xml
+✅ @RestController — handles HTTP requests
+✅ @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
+✅ @PathVariable — read value from URL (/students/{id})
+✅ @RequestBody — read JSON from request body
+✅ @Service — business logic layer
+✅ Three-layer architecture: Controller → Service → Repository
+✅ Embedded Tomcat server on port 8080
 ✅ application.properties configuration
-🔜 DTO (Data Transfer Object) pattern
-🔜 Bean Validation (@Valid, @NotNull, @Size)
+✅ Testing APIs with Postman
 🔜 Spring Data JPA + Hibernate
-🔜 MySQL integration with HikariCP connection pool
+🔜 MySQL integration with HikariCP
+🔜 Bean Validation (@Valid, @NotNull, @Size)
+🔜 Global exception handling
 🔜 Spring Security 6 filter chain
 🔜 JWT token generation and validation
-🔜 Role-based access control
-🔜 Global exception handling (ProblemDetail RFC 7807)
-🔜 Pagination and sorting
+```
+
+<br>
+
+## 🏗️ Three Layer Architecture
+
+Every Spring Boot project in this repo follows this structure:
+
+```
+HTTP Request
+     ↓
+Controller (@RestController)
+→ Receives request
+→ Validates input
+→ Calls Service
+     ↓
+Service (@Service)
+→ Contains business logic
+→ Calls Repository
+     ↓
+Repository (@Repository)
+→ Talks to database
+→ Returns data
+     ↓
+HTTP Response (JSON)
 ```
 
 <br>
 
 ## 🛠️ Tech Stack
 
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.x-6DB33F?style=flat&logo=springboot&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=flat&logo=springboot&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-21_LTS-ED8B00?style=flat&logo=openjdk&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql&logoColor=white)
 ![Lombok](https://img.shields.io/badge/Lombok-1.18.x-red?style=flat)
 ![Maven](https://img.shields.io/badge/Maven-3.9.x-C71A36?style=flat&logo=apachemaven&logoColor=white)
-![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-Community-000000?style=flat&logo=intellijidea&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-API_Testing-FF6C37?style=flat&logo=postman&logoColor=white)
 
 <br>
 
@@ -118,7 +131,7 @@ spring-boot-practice/
 - Java 21 LTS ([Download Temurin](https://adoptium.net/))
 - Maven 3.9+ or use included `mvnw` wrapper
 - MySQL 8.0 (for Stage 2+ projects)
-- IntelliJ IDEA (Community Edition)
+- IntelliJ IDEA Community Edition
 - Postman (for API testing)
 
 ### Steps
@@ -127,8 +140,8 @@ spring-boot-practice/
 # 1. Clone this repository
 git clone https://github.com/Aartigore14/spring-boot-practice.git
 
-# 2. Navigate to any project folder
-cd spring-boot-practice/01-basics/hello-world-api
+# 2. Navigate to any project
+cd spring-boot-practice/01-hello-world-api
 
 # 3. Open in IntelliJ IDEA
 # File → Open → select the project folder
@@ -137,22 +150,20 @@ cd spring-boot-practice/01-basics/hello-world-api
 # Right-click Application.java → Run
 
 # 5. Test the API
-# Open browser or Postman → http://localhost:8080
+# Open Postman or browser → http://localhost:8080
 ```
-
-> For database projects (Stage 2+), configure MySQL credentials in `application.properties` before running.
 
 <br>
 
-## 📡 API Testing
+## 📡 API Reference — Student API
 
-All REST APIs in this repository are tested using **Postman**. Each project folder contains a `postman-collection.json` file (added as projects are completed) that you can import directly into Postman.
-
-For quick testing without Postman, use the browser for GET requests:
-```
-http://localhost:8080/hello
-http://localhost:8080/students
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/students` | Get all students |
+| GET | `/api/students/{id}` | Get student by ID |
+| POST | `/api/students` | Add new student |
+| PUT | `/api/students/{id}` | Update student |
+| DELETE | `/api/students/{id}` | Delete student |
 
 <br>
 
@@ -160,11 +171,10 @@ http://localhost:8080/students
 
 | Stage | Topics | Target |
 |-------|--------|--------|
-| Stage 1 | REST API Basics | July 2026 |
-| Stage 2 | JPA + MySQL | August 2026 |
-| Stage 3 | Security + JWT | September 2026 |
-| Stage 4 | Advanced Features | October 2026 |
-| SmartSpend | Full Stack Project | November 2026 |
+| Stage 1 — Basics | REST API, CRUD, Service layer | ✅ July 2026 |
+| Stage 2 — Database | JPA, MySQL, Exception Handling | August 2026 |
+| Stage 3 — Security | Spring Security 6, JWT | September 2026 |
+| Stage 4 — Full Stack | SmartSpend deployment | November 2026 |
 
 <br>
 
@@ -183,7 +193,7 @@ http://localhost:8080/students
 
 | Repo | Description |
 |------|-------------|
-| [java-mini-projects](https://github.com/Aartigore14/java-mini-projects) | Core Java → OOP → Collections → Intermediate projects |
+| [java-mini-projects](https://github.com/Aartigore14/java-mini-projects) | Core Java → OOP → Collections → 6 complete projects |
 | [smart-parking-system](https://github.com/Aartigore14/smart-parking-system) | Frontend web project — HTML, CSS, JavaScript |
 
 <br>
@@ -191,6 +201,6 @@ http://localhost:8080/students
 ---
 
 <p align="center">
-  <i>Learning Spring Boot one project at a time. 🚀</i><br>
+  <i>Building one Spring Boot project at a time. 🚀</i><br>
   <i>⭐ Star this repo if you find it useful!</i>
 </p>
